@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Hazırlama Aracı</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="cv-title">
+        <h2>CV Hazırlama Aracı</h2>
+    </div>
+    
+    <div class="container">
+        <div class="cv-body">
+        <div class="table-container border" style="background-color: gray;">
+            <div class="column-title text-center">
+                <h3>Metin İçerikleri</h3>
+            </div>
+            <hr class="line" />
+            <table>
+                <tr>
+                    <td><h4 class="underline">İsim Kutusu</h4></td>
+                </tr>
+                <tr>
+                    <td><label class="align-items-start" for="FullName">Ad Soyad:</label></td>
+                    <td>
+                        <input type="text" id="FullName" name="FullName" onkeyup="FullName()"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="align-items-start" for="title">Ünvan:</label></td>
+                    <td>
+                        <input type="text" id="title" name="title" onkeyup="Title()"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td><h4 class="underline">İletişim Bilgileri</h4></td>
+                </tr>
+                <tr>
+                <td><label class="align-items-start" for="phone">Telefon:</label></td>
+                <td>
+                    <input type="text" id="phone" name="phone" onkeyup="Phone()"/>
+                </td>
+            </tr>
+            <tr>
+                <td><label class="align-items-start" for="email">Mail:</label></td>
+                <td>
+                    <input type="email" id="email" name="email" onkeyup="Email()"/>
+                </td>
+            </tr>
+            <tr>
+                <td><label class="align-items-start" for="web">Web:</label></td>
+                <td>
+                    <input type="web" id="web" name="web" onkeyup="Web()"/>
+                </td>
+            </tr>
+            <tr>
+                <td><label class="align-items-start" for="address">Adres:</label></td>
+                <td>
+                    <textarea name="address" id="address" cols="22" rows="5" onkeyup="Address()"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td><h4 class="underline">Eğitim Bilgileri</h4></td>
+            </tr>
+            <tr>
+                <td><label class="align-items-start" for="ExplanationEdu">Açıklama :</label></td>
+                <td>
+                    <textarea name="ExplanationEdu" id="ExplanationEdu" cols="22" rows="5" onkeyup="EducationExplanation()"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td><label class="align-items-start" for="SchoolCount">Okul Sayısı :</label></td>
+                <td>
+                    <select name="SchoolCount" id="SchoolCount" onchange="SchoolCountSelect()">
+                        <option value="">Seçiniz</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="display-none" id="FirstSchoolCount"><label class="align-items-start" for="FirstSchoolCount">1. Okul</label></td>
+                <td><input id="FirstSchoolName" name="FirstSchoolName" class="display-none" onkeyup="FirstSchoolName()"></td>
+                <td><input class="display-none" name="FirstSchoolExplanation" id="FirstSchoolExplanation" placeholder="Açıklama" type="text" onkeyup="FirstSchoolExplanation()"></td>
+            </tr>
+            <tr>
+                <td class="display-none" id="SecondSchoolCount"><label class="align-items-start" for="SecondSchoolCount">2. Okul</label></td>
+                <td><input class="display-none" id="SecondSchoolName" name="SecondSchoolName" onkeyup="SecondSchoolName()"></td>
+                <td><input class="display-none" name="SecondSchoolExplanation" id="SecondSchoolExplanation" placeholder="Açıklama" type="text" onkeyup="SecondSchoolExplanation()"></td>
+            </tr>
+            <tr>
+                <td class="display-none" id="ThirdSchoolCount"><label class="align-items-start" for="ThirdSchoolCount">3. Okul</label></td>
+                <td><input class="display-none" id="ThirdSchoolName" name="ThirdSchoolName" onkeyup="ThirdSchoolName()"></td>
+                <td><input class="display-none" name="ThirdSchoolExplanation" id="ThirdSchoolExplanation" placeholder="Açıklama" type="text" onkeyup="ThirdSchoolExplanation()"></td>
+            </tr>
+            <tr>
+                <td class="align-items-start"><h4 class="underline">Yetenekler</h4></td>
+            </tr>
+            <tr>
+                <td><label class="align-items-start" for="ExplanationSkills">Açıklama:</label></td>
+                <td>
+                    <textarea name="ExplanationSkills" id="ExplanationSkills" cols="22" rows="5" onkeyup="SkillExplanation()"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td><label class="align-items-start" for="SkillCount">Yetenek Sayısı:</label></td>
+                <td>
+                    <select name="SkillCount" id="SkillCount" onchange="SkillCountSelect()">
+                        <option value="">Seçiniz</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="display-none" id="FirstSkillCount"><label class="align-items-start" for="FirstSkillCount">1. Yetenek</label></td>
+                <td><input class="display-none" id="FirstSkillName" name="FirstSkillName" onkeyup="FirstSkillName()"></td>
+                <td><input class="display-none" name="FirstSkillExplanation" id="FirstSkillExplanation" placeholder="Açıklama" type="text" onkeyup="FirstSkillExplanation()"></td>
+            </tr>
+            <tr>
+                <td class="display-none" id="SecondSkillCount"><label class="align-items-start" for="SecondSkillCount">2. Yetenek</label></td>
+                <td><input class="display-none" id="SecondSkillName" name="SecondSkillName" onkeyup="SecondSkillName()"></td>
+                <td><input class="display-none" name="SecondSkillExplanation" id="SecondSkillExplanation" placeholder="Açıklama" type="text" onkeyup="SecondSkillExplanation()"></td>
+            </tr>
+            <tr>
+                <td class="display-none" id="ThirdSkillCount"><label class="align-items-start" for="ThirdSkillCount">3. Yetenek</label></td>
+                <td><input class="display-none" id="ThirdSkillName" name="ThirdSkillName" onkeyup="ThirdSkillName()"></td>
+                <td><input class="display-none" name="ThirdSkillExplanation" id="ThirdSkillExplanation" placeholder="Açıklama" type="text" onkeyup="ThirdSkillExplanation()"></td>
+            </tr>
+            <tr>
+                 <td class="align-items-start"><h4 class="underline">Hakkımda</h4></td>
+            </tr>
+            <tr>
+                <td><label class="align-items-start" for="aboutMeExplanation">Açıklama:</label></td>
+                <td>
+                    <textarea name="aboutMeExplanation" id="aboutMeExplanation" cols="22" rows="5" onkeyup="AboutMeExplanation()"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td class="align-items-start"><h4 class="underline">İş Deneyimi</h4></td>
+            </tr>
+            <tr>
+                <td><label class="align-items-start" for="WorkExperienceExplanation">Açıklama:</label></td>
+                <td>
+                    <textarea name="WorkExperienceExplanation" id="WorkExperienceExplanation" cols="22" rows="5" onkeyup="WorkExperience()"></textarea>
+                </td>
+            </tr>
+            </table>
+        </div>
+
+        <div class="table-container border" style="background-color: #DFDEDD;">
+            <div class="column-title text-center">
+                <h3>Görünüş</h3>
+            </div>
+            <hr class="line" />
+            <table>
+                <tr>
+                    <td class="align-items-start"><h4 class="underline">Renkler</h4></td>
+                </tr>
+                <tr>
+                    <td><label class="align-items-start" for="backgroundcolor">Arkaplan Rengi :</label></td>
+                    <td>
+                        <input type="color"id="backgroundcolor" name="backgroundcolor"value="#dd2e2e" onchange="CvBackgroundColor()">
+
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="align-items-start" for="leftcolumncolor">Sol Kolon Rengi :</label></td>
+                    <td>
+                        <input type="color" id="leftcolumncolor" name="leftcolumncolor"value="#992323" onchange="LeftSideBackgroundColor()">
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="align-items-start" for="nameboxcolor">İsim Kutusu Rengi :</label></td>
+                    <td>
+                        <input type="color" id="nameboxcolor" name="nameboxcolor"value="#0000" onchange="NameBoxColor()">
+
+                    </td>
+                </tr>
+                <tr>
+                    <td><label class="align-items-start" for="nameboxtextcolor">İsim Kutusu Yazı Rengi :</label></td>
+                    <td>
+                        <input type="color" id="nameboxtextcolor" name="nameboxtextcolor"value="#FFFFFF" onchange="NameBoxTextColor()">
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="align-items-start"><h4 class="underline">Yazı Tipi</h4></td>
+                </tr>
+                <tr>
+                    <td><label class="align-items-start" for="textType">Yazı Tipi:</label></td>
+                    <td>
+                        <select name="textType" id="textType" onchange="ChangeFontFamily()">
+                            <option value="">Seçiminiz</option>
+                            <option value="1">Times New Roman</option>
+                            <option value="2">Courier New</option>
+                            <option value="3">Lucida Handwriting</option>
+                        </select>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="align-items-start"><h4 class="underline">Fotoğraf</h4></td>
+                </tr>
+                <tr>
+                    <td><label class="align-items-start" for="photoframeshape">Fotoğraf Çerçevesi Şekli:</label></td>
+                    <td>
+                        <select name="photoframeshape" id="photoframeshape" onchange="ChangePhotoFrameShape()">
+                            <option value="">Seçiminiz</option>
+                            <option value="1">Köşeli</option>
+                            <option value="2">Oval</option>
+                            <option value="3">Yuvarlak</option>
+                        </select>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="align-items-start"><h4 class="underline">Başlık Altı Çizgileri</h4></td>
+                </tr>
+                <tr>
+                    <td><label class="align-items-start" for="nameboxlinecolor">Çizgi Rengi :</label></td>
+                <td>
+                    <input type="color" id="nameboxlinecolor" name="nameboxlinecolor"value="#0000" onchange="BelowTitleLines()">
+
+                </td>
+                </tr>
+                <td><label class="align-items-start" for="lineshape">Çizgi Şekli:</label></td>
+                <td>
+                    <select name="lineshape" id="lineshape" onchange="LineShape()">
+                        <option value="">Seçiminiz</option>
+                        <option value="1">Noktalı</option>
+                        <option value="2">Çizgili</option>
+                        <option value="3">Düz</option>
+                    </select>
+                </td>
+            </table>
+        </div>
+        
+        <div class="cv-container border">
+            <div class="cv-left-side">
+                <div class="profile-image">
+                    <div class="profile-photo">FOTOĞRAF</div>
+                </div>
+                <div class="cv-header" id="contact">
+                    <h2>İLETİŞİM</h2>
+                    <hr class="cv-header-line">
+                    <ul>
+                        <li id="phone-li">{ Telefon }</li>
+                    </ul>
+                    <ul>
+                        <li id="mail-li">{ Mail }</li>
+                    </ul>
+                    <ul>
+                        <li id="address-li">{ Adres }</li>
+                    </ul>
+                    <ul>
+                        <li id="web-li">{ Web }</li>
+                    </ul>
+                </div>
+                <div class="section-spacing"></div>
+                <div class="cv-header" id="educationCv">
+                    <h2>EĞİTİM</h2>
+                    <hr class="cv-header-line">
+                    <div style="padding-left: 1rem;">
+                        <div id="educationExplanation">
+                            { AÇIKLAMA }
+                        </div>
+                        <ul id="educationParentUl" class="display-none">
+                            <li id="educationFirstChildLi" class="display-none">
+                                <ul id="educationChildUl">
+                                    <li id="educationSecondChildLi"></li>
+                                </ul>
+                            </li>
+                            <li id="educationThirdChildLi" class="display-none">
+                                <ul id="educationSecondChildUl">
+                                    <li id="educationFourthChildLi"></li>
+                                </ul>
+                            </li>
+                            <li id="educationFifthChildLi" class="display-none">
+                                <ul id="educationThirdChildUl">
+                                    <li id="educationSixthChildLi"></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="section-spacing"></div>
+                <div class="cv-header" id="skillsCv">
+                    <h2>YETENEKLER</h2>
+                    <hr class="cv-header-line">
+                    <div style="padding-left: 1rem;">
+                        <div id="skillExplanation">
+                            { AÇIKLAMA }
+                        </div>
+                        <ul id="skillParentUl" class="display-none">
+                            <li id="skillFirstChildLi" class="display-none">
+                                <ul id="skillChildUl">
+                                    <li id="skillSecondChildLi"></li>
+                                </ul>
+                            </li>
+                            <li id="skillThirdChildLi" class="display-none">
+                                <ul id="skillSecondChildUl">
+                                    <li id="skillFourthChildLi"></li>
+                                </ul>
+                            </li>
+                            <li id="skillFifthChildLi" class="display-none">
+                                <ul id="skillThirdChildUl">
+                                    <li id="skillSixthChildLi"></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="cv-right-side">
+                <div class="name-box">
+                    <h1 id="name-box-fullname"> { AD SOYAD }</h1>
+                    <hr class="name-title-line">
+                    <h2 id="name-box-title">{ ÜNVAN }</h2>
+                </div>
+                <div class="cv-header" style="margin-top: 1.25rem;">
+                    <h2>HAKKIMDA</h2>
+                    <hr class="cv-header-line">
+                    <div id="aboutMe" style="padding-left: 1rem;">
+                        { AÇIKLAMA }
+                    </div>
+                </div>
+                <div class="section-middle-spacing"></div>
+                <div class="cv-header">
+                    <h2>İŞ DENEYİMİ</h2>
+                    <hr class="cv-header-line">
+                    <div id="workExperience" style="padding-left: 1rem;">
+                        { AÇIKLAMA }
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</body>
+</html>
